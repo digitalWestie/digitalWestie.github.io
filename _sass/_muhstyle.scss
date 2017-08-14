@@ -1,0 +1,55 @@
+/**
+ * digitalWestie overrides
+ */
+
+h2 { margin-bottom: 1.2em; }
+
+.intro-text { width: 60vw; font-size:1.3em; }
+
+.half { 
+  padding:2%; 
+  padding-right: 0%; 
+  width:46%; 
+  float:left; 
+}
+.half-left { padding-left: 0%; padding-right:2%; margin-right: 2%; }
+
+@media (max-width: 850px) {
+  .half { width:100%; float:left; }
+  .half:first { margin-right: 2vw; }
+}
+
+.client-logos {
+  img {
+    width:20%;
+    margin-right:3%;
+    margin-bottom:3%; 
+  }
+
+  img.bigger {
+    width: 40%;
+  }
+}
+
+.intrinsic-container {
+  position: relative;
+  height: 0;
+  overflow: hidden;
+  margin-bottom:1em;
+}
+
+.intrinsic-container-16x9 {
+  padding-bottom: 56.25%;
+}
+ 
+.intrinsic-container-4x3 {
+  padding-bottom: 75%;
+}
+ 
+.intrinsic-container iframe {
+  position: absolute;
+  top:0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
