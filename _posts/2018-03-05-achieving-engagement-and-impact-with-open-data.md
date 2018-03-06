@@ -5,7 +5,7 @@ date: 2018-03-05 11:00:00 +0000
 tags: open-data,science
 ---
 
-In my time working in civic tech and Open Data the question of sustainability has haunted many projects and initiatives I've come across. This is understandable, as Open Data is relatively new to most organisations. Consistently publishing and maintaining a limited number of datasets requires an organisation to build data literacy, change institutional culture, and account for new roles and responsibilities.
+In my time working in civic tech and Open Data the question of sustainability has haunted many projects and initiatives I've come across. This is understandable, as Open Data is relatively new to most organisations. Consistently publishing and maintaining a limited number of datasets requires an organisation to build data literacy, change institutional culture, put in place robust publishing processes, and account for new roles and responsibilities.
 
 [EU reporting on Open Data maturity](https://www.europeandataportal.eu/en/highlights/open-data-maturity-europe-2017) tells us how far the public-sector has come in just a few years. Open Data readiness scored 72% in 2017 compared with 46% in 2015. These figures represent new policies, portals, datasets, apps and services.
 
