@@ -30,11 +30,11 @@ Building on the Mozilla Fest event, my colleagues from ODI Aberdeen and I will b
 {:.caption}
 Excerpt from workshop slides, Source: [Tim Davies](www.timdavies.org.uk/2012/01/21/5-stars-of-open-data-engagement/)
 
-Engagement revealed itself to be a central concept as no Open Data programme is going to be successful without involving others. Take for example a charity mandated by funders to increase transparency by publishing grant spending data. The data it publishes may meet the definition of 'open' by being publicly licensed and available, yet it's too difficult for others to interpret. Indeed, such a situation creates risk that data is misinterpreted. Data published in the name of transparency and protecting reputation could cause confusion and pessimism.
+Engagement revealed itself to be a central concept as no Open Data programme is going to be successful without involving others. Take for example an international charity mandated by aid funding to increase transparency by publishing spending data. The data it publishes may meet the definition of 'open' by being publicly licensed and available, yet it's too difficult for others to interpret. Indeed, such a situation creates risk that data is misinterpreted. Data published in the name of transparency and protecting reputation could cause confusion and pessimism.
 
-### Publishing datasets is just the start
+### Identify who you want to involve
 
-Avoiding such a situation requires a better understanding of data re-users. The skills, resources, and practices inside the charity, aren't going to be the same outside of its offices. Taking account of this might look like reaching out to users and understanding where they may need support, perhaps in the form of guides or links to tools. Likewise, the charity could provide contact details along with datasets so users can get in touch and ask questions about them. 
+Avoiding such a situation requires a better understanding of data re-users. The skills, resources, and practices inside the charity, aren't going to be the same outside of its offices. Taking account of this might look like reaching out to users and understanding where they may need support, perhaps in the form of guides or links to tools. Likewise, the charity could provide contact details along with datasets so users can get in touch and ask questions about them.
 
 The best way to make these needs apparent is to treat Open Data like a common resource, rather than one organisation's data that happens to be published openly. Adopting this view makes data a collaborative activity. As much as the data is there for others to use, it's also there for others to build-on, improve, discuss, and/or correct. This is one of the reasons the Open Data Institute considers data a kind of infrastructure, a view now shared by the National Infrastructure Commission.
 
