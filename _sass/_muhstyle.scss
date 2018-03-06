@@ -2,9 +2,12 @@
  * digitalWestie overrides
  */
 
+
+.wrapper { max-width:66vw; }
+
 h2 { margin-bottom: 1.2em; }
 
-.intro-text { width: 60vw; font-size:1.3em; }
+.intro-text { font-size:1.3em; }
 
 .half { 
   padding:2%; 
@@ -53,3 +56,17 @@ h2 { margin-bottom: 1.2em; }
   width: 100%;
   height: 100%;
 }
+
+/* A Post */
+
+header.post-header { margin-top: 1em; }
+
+h1.post-title { font-size: 2em; }
+
+article.post {
+  img { margin: 1em auto; display:block; text-align:center; }
+}
+
+p.caption { position:relative; top:-0.5em; text-align: center; font-size: 0.9em; font-style:italic; }
+
+img.restrict { max-height: 63vh; }
