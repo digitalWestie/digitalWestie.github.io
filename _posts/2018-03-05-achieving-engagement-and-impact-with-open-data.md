@@ -32,7 +32,7 @@ Excerpt from workshop slides, Source: [Tim Davies](www.timdavies.org.uk/2012/01/
 
 Engagement revealed itself to be a central concept as no Open Data programme is going to be successful without involving others. Take for example an international charity mandated by aid funding to increase transparency by publishing spending data. The data it publishes may meet the definition of 'open' by being publicly licensed and available, yet it's too difficult for others to interpret. Indeed, such a situation creates risk that data is misinterpreted. Data published in the name of transparency and protecting reputation could cause confusion and pessimism.
 
-### Identify who you want to involve
+### Identify your users
 
 Avoiding such a situation requires a better understanding of data re-users. The skills, resources, and practices inside the charity, aren't going to be the same outside of its offices. Taking account of this might look like reaching out to users and understanding where they may need support, perhaps in the form of guides or links to tools. Likewise, the charity could provide contact details along with datasets so users can get in touch and ask questions about them.
 
