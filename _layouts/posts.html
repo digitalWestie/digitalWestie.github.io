@@ -6,6 +6,7 @@ layout: default
 
   {{ content }}
   
+  <h2>Posts</h2>  
   <ul class="post-list">
     {% for post in site.posts %}
       <li>
@@ -17,6 +18,16 @@ layout: default
         </h2>
       </li>
     {% endfor %}
+  </ul>
+
+  <h2>Projects</h2>
+  <ul class="post-list">
+    <li>
+      <span class="post-meta">Mar 8, 2018</span>
+      <h2>
+        <a class="post-link" href="/gender-pay-gap-data.html">Exploring the pay gap with data</a>
+      </h2>
+    </li>
   </ul>
 
   <p class="rss-subscribe">subscribe <a href="{{ "/feed.xml" | relative_url }}">via RSS</a></p>

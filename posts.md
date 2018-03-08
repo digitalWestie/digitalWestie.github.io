@@ -2,8 +2,6 @@
 layout: posts
 title: Posts
 permalink: /posts/
+in_header: True
 ---
 
-## Some thoughts 
-
-(Still updating this site, they're on their way)
