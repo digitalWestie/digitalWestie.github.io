@@ -29,7 +29,18 @@ layout: project
   <p>Turns out the Guardian have been on the ball and have <a href="https://www.theguardian.com/news/ng-interactive/2018/feb/28/gender-pay-gap-what-we-learned-this-week">produced a few articles on the dataset already</a>, including a handy explainer on <a href="https://www.theguardian.com/news/2018/feb/28/what-you-need-to-know-about-gender-pay-gap-reporting">the different types of figures</a>.</p>
 
   <p>Exploring the dataset, and following links to individual company reports, has given me a different impression of what pay gaps actually are. Beforehand the term 'pay gap' made me think of situations where men and women earn differently doing the same or similar jobs. In reality, it's a lot more to do with who's at the top. You can have a large equally paid workforce, but the gap comes along when the executives are mostly men, and earn mega-bucks plus bonuses. This is especially true when we use mean rather than median to calculate paygap figures.</p>
+
+  <p>You're probably wondering who were talking about here, so I've added in a chart for exploring the top/bottom 20 individual companies for each metric too: </p>
 </div>
+</div>
+
+<div style="margin:0 10vw; position: relative;">
+  <canvas id="full-canvas"></canvas>
+  <div class="controls" style="position: absolute; top:16vw; right:50px;">
+    <a style="" href="#full-canvas" id="cycle-full"><i class="right"></i></a>   
+  </div>
+
+  <p style="text-align:center; font-size:0.8em;">Left to right, women paid more to men paid more. Source: <a href="https://data.gov.uk/dataset/gender-pay-gap/resource/f0f3f08a-738c-4920-a532-3ae50de34fd6">Government Equalities Office</a></p>
 </div>
 
 <script>
@@ -113,14 +124,87 @@ layout: project
       groupedChart.data.datasets[0].data = headingData[currentHeading];
       groupedChart.update();
     });
+  };
 
-    /*setTimeout(function () {
-      groupedChart.data.datasets[0].backgroundColor = color(window.chartColors.blue).alpha(0.9).rgbString();
-    }, 3000);*/
+
+  var metricIdx = 0;
+  var labelIdx = 0;
+
+  document.getElementById('cycle-full').addEventListener('click', function() {
+    labelIdx++; 
+    if (labelIdx == fullLabels.length) { labelIdx = 0; metricIdx++; }
+    if (metricIdx == _.keys(headingLabels).length) { metricIdx = 0; }
+
+    var metric = _.keys(headingLabels)[metricIdx];
+    var barColor = window.chartColors.green;
+    if (metricIdx % 2){ barColor = window.chartColors.orange; }
+
+    if (labelIdx == 0){
+      sortFullData(sortedData, metric);
+    }
+    
+    fullChart.data.labels = coNames.reverse().slice(0, 30);
+    fullChart.data.datasets[0].data = fullHeadingData[metric].reverse().slice(0,30);
+    fullChart.data.datasets[0].label = headingLabels[metric] + fullLabels[labelIdx];
+
+    fullChart.data.datasets[0].backgroundColor = color(barColor).alpha(0.9).rgbString();
+    fullChart.data.datasets[0].borderColor = barColor;
+    fullChart.update();
+  });
+
+  var fullLabels = [" (Highest 20)", " (Lowest 20)" ];
+
+  var fullHeadingData = {
+    "DiffMeanHourlyPercent" : [],
+    "DiffMedianHourlyPercent" : [],
+    "DiffMeanBonusPercent" : [],
+    "DiffMedianBonusPercent" : [],
+    "MaleBonusPercent" : [],
+    "FemaleBonusPercent" : []
+  };
+
+  var coNames = [];
+  var sortedData; 
+
+  var sortFullData = function(gapData, metric) {
+    coNames = [];
+    fullHeadingData[metric] = [];
+    var sorted = _.sortBy(gapData, metric);
+    _.each(sorted, function(o,k){
+      fullHeadingData[metric].push(o[metric]);
+      coNames.push(o["EmployerName"]);
+    });
+    return sorted;
+  }
+
+  var buildFullChart = function(gapData){
+    sortedData = sortFullData(gapData, "DiffMeanHourlyPercent");
+
+    var chartData = {
+      labels: coNames.reverse().slice(0,20),
+      datasets: [{
+        label: headingLabels["DiffMeanHourlyPercent"] + fullLabels[0],
+        backgroundColor: color(window.chartColors.orange).alpha(0.9).rgbString(),
+        borderColor: window.chartColors.orange,
+        borderWidth: 1,
+        data: fullHeadingData["DiffMeanHourlyPercent"].reverse().slice(0,20)
+      }]
+    };
+
+    var fullCtx = document.getElementById('full-canvas').getContext('2d');
+
+    chartOptions.scales = { xAxes: [{ ticks: { 
+      suggestedMin: -100, suggestedMax: 100 } }] };
+
+    window.fullChart = new Chart(fullCtx, {
+      type: 'horizontalBar',
+      data: chartData,
+      options: chartOptions
+    });
   };
 
   var req = new XMLHttpRequest();
-  req.open('GET', 'assets/js/paygap.json');
+  req.open('GET', 'assets/js/grouped-paygap.json');
   req.onload = function(e) {
     if (this.status == 200) {
       var gapData = JSON.parse(this.response);
@@ -130,6 +214,20 @@ layout: project
     }
   };
 
-  window.onload = function() { req.send(); };
+  var req2 = new XMLHttpRequest();
+  req2.open('GET', 'assets/js/full-paygap.json');
+  req2.onload = function(e) {
+    if (this.status == 200) {
+      var gapData = JSON.parse(this.response);
+      buildFullChart(gapData);
+    } else {
+      console.log("could not load data");
+    }
+  };
+
+  window.onload = function() { 
+    req.send();
+    window.setTimeout(function(){ req2.send(); },500);
+  };
 
 </script>
