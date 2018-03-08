@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="{{ page.lang | default: site.lang | default: "en" }}">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+
+    <title>2017-2018 Pay Gap Data</title>
+    <script src="assets/js/Chart.bundle.js"></script>
+    <script src="assets/js/underscore-min.js"></script>
+    <script src="assets/js/chart-sorter.js"></script>
+
+    <link rel="stylesheet" href="{{ "/assets/main.css" | relative_url }}">
+    <style type="text/css">/* Chart.js */
+      
+      @-webkit-keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}@keyframes chartjs-render-animation{from{opacity:0.99}to{opacity:1}}.chartjs-render-monitor{-webkit-animation:chartjs-render-animation 0.001s;animation:chartjs-render-animation 0.001s;}
+
+      canvas {
+        -moz-user-select: none;
+        -webkit-user-select: none;
+        -ms-user-select: none;
+      }
+      
+      a#cycle:hover { opacity:0.5; }
+      i.right {
+        border: solid black;
+        border-width: 0 1vw 1vw 0;
+        display: inline-block;
+        padding: 3vw;
+        transform: rotate(-45deg);
+        -webkit-transform: rotate(-45deg);
+      }
+    </style>
+  </head>
+
+  <body>
+
+    {% include header.html %}
+
+    <main class="page-content" aria-label="Content">
+        {{ content }}
+    </main>
+
+    {% include footer.html %}
+
+  </body>
+
+</html>

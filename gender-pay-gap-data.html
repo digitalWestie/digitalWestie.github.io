@@ -1,0 +1,135 @@
+---
+# You don't need to edit this file, it's empty on purpose.
+# Edit theme's home layout instead if you wanna make some changes
+# See: https://jekyllrb.com/docs/themes/#overriding-theme-defaults
+layout: project
+---
+<div class="wrapper">
+<div class="post">
+  <h1>Exploring the pay gap with data</h1>
+  
+  <p>While preparing <a href="http://rgianni.cc/2018/03/05/achieving-engagement-and-impact-with-open-data.html">a workshop on Open Data</a> I'll be running in a few weeks, I discovered an interesting dataset on <a href="https://data.gov.uk">data.gov.uk</a> showing gender pay gaps at large organisations.</p>
+
+  <p>At the end of the financial year, public and private organisations with over 250 employees will have to submit reports on gender pay gaps. The data submitted so far has been <a href="https://data.gov.uk/dataset/gender-pay-gap/resource/f0f3f08a-738c-4920-a532-3ae50de34fd6">made available.</a>. Taking a look through it I discovered a rich dataset, showing mean hourly pay, medians hourly pay, bonuses, etc. It also includes <a href="https://www.gov.uk/government/uploads/system/uploads/attachment_data/file/527619/SIC07_CH_condensed_list_en.csv/preview">SIC codes</a>. These are classifications used by Companies House to describe what companies do.</p>
+
+  <p>Using these classification codes I've averaged values for each sector represented in the dataset. You can use the arrow to cycle through the different figures:</p>
+</div>
+</div>
+
+<div style="margin:0 10vw; position: relative;">
+  <canvas id="canvas"></canvas>
+  <div class="controls" style="position: absolute; top:16vw; right:50px;">
+    <a style="" href="#canvas" id="cycle"><i class="right"></i></a>   
+  </div>
+  <p style="text-align:center; font-size:0.8em;">Source: <a href="https://data.gov.uk/dataset/gender-pay-gap/resource/f0f3f08a-738c-4920-a532-3ae50de34fd6">Government Equalities Office</a></p>
+</div>
+
+<div class="wrapper">
+  <div class="post">
+  <p>Turns out the Guardian have been on the ball and have <a href="https://www.theguardian.com/news/ng-interactive/2018/feb/28/gender-pay-gap-what-we-learned-this-week">produced a few articles on the dataset already</a>, including a handy explainer on <a href="https://www.theguardian.com/news/2018/feb/28/what-you-need-to-know-about-gender-pay-gap-reporting">the different types of figures</a>.</p>
+
+  <p>Exploring the dataset, and following links to individual company reports, has given me a different impression of what pay gaps actually are. Beforehand the term 'pay gap' made me think of situations where men and women earn differently doing the same or similar jobs. In reality, it's a lot more to do with who's at the top. You can have a large equally paid workforce, but the gap comes along when the executives are mostly men, and earn mega-bucks plus bonuses. This is especially true when we use mean rather than median to calculate paygap figures.</p>
+</div>
+</div>
+
+<script>
+  window.chartColors = {
+    red: 'rgb(255, 99, 132)',
+    orange: 'rgb(255, 159, 64)',
+    yellow: 'rgb(255, 205, 86)',
+    green: 'rgb(75, 192, 192)',
+    blue: 'rgb(54, 162, 235)',
+    purple: 'rgb(153, 102, 255)',
+    grey: 'rgb(201, 203, 207)'
+  };
+
+  var headingLabels = {
+    "DiffMeanHourlyPercent" : "Mean Hourly Differences %",
+    "DiffMedianHourlyPercent" : "Median Hourly Differences %",
+    "DiffMeanBonusPercent" : "Mean Bonus Differences %",
+    "DiffMedianBonusPercent" : "Median Bonus Differences %",
+    "MaleBonusPercent" : "Male Bonus %",
+    "FemaleBonusPercent" : "Female Bonus %"
+  };
+
+  var headingData = {
+    "DiffMeanHourlyPercent" : [],
+    "DiffMedianHourlyPercent" : [],
+    "DiffMeanBonusPercent" : [],
+    "DiffMedianBonusPercent" : [],
+    "MaleBonusPercent" : [],
+    "FemaleBonusPercent" : []
+  };
+
+  var color = Chart.helpers.color;
+  var colorNames = Object.keys(window.chartColors);
+  var ctx = document.getElementById('canvas').getContext('2d');
+  var chartOptions = {
+    elements: { rectangle: { borderWidth: 2 } },
+    responsive: true,
+    legend: { position: 'right' },
+    title: { display: false, text: 'Pay Gap Data' },
+    scales: { xAxes: [{ ticks: { suggestedMin: 0, suggestedMax: 30 } }] }
+  };
+
+  var setupChartForHeading = function(heading, gapData){
+    return {
+      labels: _.map(gapData, function(s){ return s.description }),
+      datasets: [{
+        label: headingLabels[heading],
+        backgroundColor: color(window.chartColors.red).alpha(0.9).rgbString(),
+        borderColor: window.chartColors.red,
+        borderWidth: 1,
+        data: headingData[heading]
+      }]
+    };
+  };
+
+  var buildChart = function(gapData){
+    var sortedData =_.sortBy(gapData.averages, 'DiffMeanHourlyPercent');
+    
+    _.each(sortedData, function(o,k){
+      _.each(headingData, function(arr,head){ arr.push(o[head]) })
+    });
+
+    var horizontalBarChartData = setupChartForHeading("DiffMeanHourlyPercent", sortedData);
+
+    window.groupedChart = new Chart(ctx, {
+      type: 'horizontalBar',
+      data: horizontalBarChartData,
+      options: chartOptions
+    });
+
+    var headingIdx = 0;
+    document.getElementById('cycle').addEventListener('click', function() {
+      headingIdx++; if (headingIdx == _.keys(headingLabels).length) { headingIdx = 0; }
+
+      var currentHeading = _.keys(headingLabels)[headingIdx];
+      var hColor = chartColors[_.keys(chartColors)[headingIdx]];
+
+      groupedChart.data.datasets[0].backgroundColor = color(hColor).alpha(0.9).rgbString();
+      groupedChart.data.datasets[0].borderColor = hColor;
+      groupedChart.data.datasets[0].label = headingLabels[currentHeading];
+      groupedChart.data.datasets[0].data = headingData[currentHeading];
+      groupedChart.update();
+    });
+
+    /*setTimeout(function () {
+      groupedChart.data.datasets[0].backgroundColor = color(window.chartColors.blue).alpha(0.9).rgbString();
+    }, 3000);*/
+  };
+
+  var req = new XMLHttpRequest();
+  req.open('GET', 'assets/js/paygap.json');
+  req.onload = function(e) {
+    if (this.status == 200) {
+      var gapData = JSON.parse(this.response);
+      buildChart(gapData);
+    } else {
+      console.log("could not load data");
+    }
+  };
+
+  window.onload = function() { req.send(); };
+
+</script>
