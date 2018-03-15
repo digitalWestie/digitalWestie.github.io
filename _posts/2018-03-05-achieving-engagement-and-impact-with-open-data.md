@@ -43,4 +43,8 @@ If you’d like to explore what engagement means for your project, do join us fo
 - [18:00 ~ 20:00 19th March @ The Melting Pot, Edinburgh](https://www.eventbrite.co.uk/e/achieving-engagement-impact-with-open-data-tickets-42463078210)
 - [18:00 ~ 20:00 22nd March @ The Aberdeen Science Centre, Aberdeen](https://www.eventbrite.co.uk/e/achieving-engagement-impact-with-open-data-aberdeen-tickets-43030013930)
 
-Both are part of a wider programme of DataFest, including over 40 Fringe events taking place across the country. If you can’t make it but like what we’ve planned do get in touch, either with [myself](https://twitter.com/digitalWestie) or my colleagues at [ODI Node Aberdeen (aka Code The City)](http://codethecity.org).
+Both are part of a wider programme of DataFest, including over 40 Fringe events taking place across the country. If you can’t make it but like what we’ve planned do get in touch, either with [myself](https://twitter.com/digitalWestie) or my colleagues at [ODI Node Aberdeen (aka Code The City)](http://codethecity.org).  
+  
+  
+### Addendum:
+I'm crowdsourcing a [checklist of best practices for engagement](https://github.com/digitalWestie/open-engagement/blob/master/OE-BEST-PRACTICE.md) with Open Data. Thoughts and contributions are welcome!
