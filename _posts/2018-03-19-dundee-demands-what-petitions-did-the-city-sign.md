@@ -11,7 +11,7 @@ I mainly spent my time picking people's brains and chewing over the questions of
 
 ### Petition data
 
-Aside from bothering other people for my ulterior motives, I joined in by having a play around with data from the [parliament petition site](https://petition.parliament.uk/petitions?state=open). The site's petition data are made available via a JSON API and incldues signatures broken down by constituency. This is the data behind the [petition map](https://petitionmap.unboxedconsulting.com) you might have come across:
+Aside from bothering people for my ulterior motives, I joined in by having a play around with data from the [parliament petition site](https://petition.parliament.uk/petitions?state=open). The site's petition data are made available via a JSON API and incldues signatures broken down by constituency. This is the data behind the [petition map](https://petitionmap.unboxedconsulting.com) you might have come across:
 
 ![Petition signatures mapped across the UK](/assets/images/petition-map.png){:class="img-responsive"}
 
@@ -27,7 +27,7 @@ Below I've summarised and picked out some results I found interesting. You can a
 
 ### Top petitions in Dundee
 
-Independence and constitutional issues were the main issues for Dundee petition signers. At number one spot was "Allow Scotland to host a second referendum for Scottish Independence", with 51 signatures out of a total UK wide of 1072 signatures.
+Independence and constitution-related petitions were the main issue for Dundee petition signers. At number one spot was "Allow Scotland to host a second referendum for Scottish Independence", with 51 signatures out of a total UK wide of 1072 signatures.
 
 Number 2 and 3 were also constitutional: "Return Tax raising powers in Scotland to the UK Government" and "Return Scottish devolved powers to UK Government and Parliament".
 
