@@ -72,3 +72,24 @@ article.post {
 p.caption { position:relative; top:-0.5em; text-align: center; font-size: 0.9em; font-style:italic; }
 
 img.restrict { max-height: 63vh; }
+
+div.side-box {
+  padding: 1vw;
+  background-color: #ff8f00;
+  float: right;
+  position: relative;
+  width: 28vw;
+  border-radius: 5px;
+  margin-left: 15px;
+  font-size: 1em;
+  color: white;
+
+  a, a:visited { color:white;
+   text-decoration-line: underline;
+    text-decoration-color: #ffe497; }
+}
+
+
+@media (max-width: 850px) {
+  div.side-box { float: none; width: auto; margin: 0; }
+}
