@@ -28,7 +28,8 @@ This workshop serves as an introduction to Open Data. It includes some practical
 ### 'Achieving Impact & Engagement with Open Data'
 
 <div class="side-box">
-<b>📋 Best practices presented in the workshop</b> are <a target="_blank" href="https://github.com/digitalWestie/open-engagement/blob/master/OE-BEST-PRACTICE.md">freely available as a checklist</a>. <br/>Contributions, feedback, or thoughts about the checklist are welcome! Just contribute on Github or email me: hello[at]rgianni.cc
+  <p>
+<b>📋 Best practices presented in the workshop</b> are <a target="_blank" href="https://github.com/digitalWestie/open-engagement/blob/master/OE-BEST-PRACTICE.md">freely available as a checklist</a>.</p><p>Contributions, feedback, or thoughts about the checklist are welcome! Just contribute on Github or email me: hello[at]rgianni.cc </p>
 </div>
 
 This workshop is aimed at anyone leading a new or existing Open Data initiative e.g. [Data Portals](https://blog.ldodds.com/2015/10/13/what-is-a-data-portal/), Citizen Science and Open Innovation projects. 
