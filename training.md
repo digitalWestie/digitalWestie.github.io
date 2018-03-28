@@ -14,6 +14,8 @@ In 2017 I became an [Open Data Institute](https://theodi.org) registered trainer
 - Open Data in Practice
 - Achieving Impact & Engagement with Open Data
 
+If you're interested training do get in touch. Training needn't be delivered as one of these workshops but they are outlined below to give an idea of the content.
+
 ### 'Open Data in Practice'
 
 This workshop serves as an introduction to Open Data. It includes some practical work to help build literacy around data and data publishing. 
